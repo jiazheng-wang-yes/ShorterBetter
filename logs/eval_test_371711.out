@@ -1,0 +1,217 @@
+running human_eval evaluation
+INFO 02-11 19:57:35 __init__.py:183] Automatically detected platform cuda.
+INFO 02-11 19:57:45 config.py:526] This model supports multiple tasks: {'reward', 'classify', 'score', 'embed', 'generate'}. Defaulting to 'generate'.
+INFO 02-11 19:57:45 config.py:1383] Defaulting to use mp for distributed inference
+INFO 02-11 19:57:45 llm_engine.py:232] Initializing a V0 LLM engine (v0.7.1) with config: model='Qwen/QwQ-32B-Preview', speculative_config=None, tokenizer='Qwen/QwQ-32B-Preview', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=4, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=Qwen/QwQ-32B-Preview, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":256}, use_cached_outputs=False, 
+WARNING 02-11 19:57:46 multiproc_worker_utils.py:298] Reducing Torch parallelism from 32 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+INFO 02-11 19:57:46 custom_cache_manager.py:17] Setting Triton cache manager to: vllm.triton_utils.custom_cache_manager:CustomCacheManager
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m INFO 02-11 19:57:46 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m INFO 02-11 19:57:46 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=3169243)[0;0m INFO 02-11 19:57:46 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+INFO 02-11 19:57:47 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m INFO 02-11 19:57:47 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3169243)[0;0m INFO 02-11 19:57:47 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m INFO 02-11 19:57:47 cuda.py:235] Using Flash Attention backend.
+INFO 02-11 19:57:49 utils.py:938] Found nccl from library libnccl.so.2
+INFO 02-11 19:57:49 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m INFO 02-11 19:57:49 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3169243)[0;0m INFO 02-11 19:57:49 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m INFO 02-11 19:57:49 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3169243)[0;0m INFO 02-11 19:57:49 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m INFO 02-11 19:57:49 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m INFO 02-11 19:57:49 pynccl.py:67] vLLM is using nccl==2.21.5
+WARNING 02-11 19:57:50 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=3169243)[0;0m WARNING 02-11 19:57:50 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m WARNING 02-11 19:57:50 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m WARNING 02-11 19:57:50 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+INFO 02-11 19:57:50 shm_broadcast.py:256] vLLM message queue communication handle: Handle(connect_ip='127.0.0.1', local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_2d9b6686'), local_subscribe_port=52715, remote_subscribe_port=None)
+INFO 02-11 19:57:50 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m INFO 02-11 19:57:50 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m INFO 02-11 19:57:50 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=3169243)[0;0m INFO 02-11 19:57:50 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m INFO 02-11 19:57:51 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m INFO 02-11 19:57:51 weight_utils.py:251] Using model weights format ['*.safetensors']
+INFO 02-11 19:57:51 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=3169243)[0;0m INFO 02-11 19:57:51 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240] Exception in worker VllmWorkerProcess while processing method load_model.
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240] Traceback (most recent call last):
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/executor/multiproc_worker_utils.py", line 234, in _run_worker_process
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     output = run_method(worker, method, args, kwargs)
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/utils.py", line 2208, in run_method
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     return func(*args, **kwargs)
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]            ^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/worker/worker.py", line 182, in load_model
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     self.model_runner.load_model()
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/worker/model_runner.py", line 1113, in load_model
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     self.model = get_model(vllm_config=self.vllm_config)
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/model_executor/model_loader/__init__.py", line 12, in get_model
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     return loader.load_model(vllm_config=vllm_config)
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/model_executor/model_loader/loader.py", line 380, in load_model
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     loaded_weights = model.load_weights(
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]                      ^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/model_executor/models/qwen2.py", line 513, in load_weights
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     return loader.load_weights(weights)
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/model_executor/models/utils.py", line 233, in load_weights
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     autoloaded_weights = set(self._load_module("", self.module, weights))
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/model_executor/models/utils.py", line 185, in _load_module
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     for child_prefix, child_weights in self._groupby_prefix(weights):
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/model_executor/models/utils.py", line 99, in _groupby_prefix
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     for prefix, group in itertools.groupby(weights_by_parts,
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/model_executor/models/utils.py", line 97, in <genexpr>
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     for weight_name, weight_data in weights)
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]                                     ^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/model_executor/model_loader/loader.py", line 355, in _get_all_weights
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     yield from self._get_weights_iterator(primary_weights)
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/model_executor/model_loader/loader.py", line 308, in _get_weights_iterator
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     hf_folder, hf_weights_files, use_safetensors = self._prepare_weights(
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]                                                    ^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/model_executor/model_loader/loader.py", line 261, in _prepare_weights
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     hf_folder = download_weights_from_hf(
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/model_executor/model_loader/weight_utils.py", line 255, in download_weights_from_hf
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     hf_folder = snapshot_download(
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]                 ^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     return fn(*args, **kwargs)
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]            ^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/huggingface_hub/_snapshot_download.py", line 296, in snapshot_download
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     thread_map(
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/tqdm/contrib/concurrent.py", line 69, in thread_map
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     return _executor_map(ThreadPoolExecutor, fn, *iterables, **tqdm_kwargs)
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/tqdm/contrib/concurrent.py", line 51, in _executor_map
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     return list(tqdm_class(ex.map(fn, *iterables, chunksize=chunksize), **kwargs))
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/tqdm/std.py", line 1169, in __iter__
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     for obj in iterable:
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]                ^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/concurrent/futures/_base.py", line 619, in result_iterator
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     yield _result_or_cancel(fs.pop())
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/concurrent/futures/_base.py", line 317, in _result_or_cancel
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     return fut.result(timeout)
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]            ^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     return self.__get_result()
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]            ^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     raise self._exception
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     result = self.fn(*self.args, **self.kwargs)
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/huggingface_hub/_snapshot_download.py", line 270, in _inner_hf_hub_download
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     return hf_hub_download(
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]            ^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     return fn(*args, **kwargs)
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]            ^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 860, in hf_hub_download
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     return _hf_hub_download_to_cache_dir(
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1009, in _hf_hub_download_to_cache_dir
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     _download_to_tmp_and_move(
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1543, in _download_to_tmp_and_move
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     http_get(
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 455, in http_get
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240]     temp_file.write(chunk)
+[1;36m(VllmWorkerProcess pid=3169241)[0;0m ERROR 02-11 20:01:12 multiproc_worker_utils.py:240] OSError: [Errno 122] Disk quota exceeded
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240] Exception in worker VllmWorkerProcess while processing method load_model.
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240] Traceback (most recent call last):
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/executor/multiproc_worker_utils.py", line 234, in _run_worker_process
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     output = run_method(worker, method, args, kwargs)
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/utils.py", line 2208, in run_method
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     return func(*args, **kwargs)
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]            ^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/worker/worker.py", line 182, in load_model
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     self.model_runner.load_model()
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/worker/model_runner.py", line 1113, in load_model
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     self.model = get_model(vllm_config=self.vllm_config)
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/model_executor/model_loader/__init__.py", line 12, in get_model
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     return loader.load_model(vllm_config=vllm_config)
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/model_executor/model_loader/loader.py", line 380, in load_model
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     loaded_weights = model.load_weights(
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]                      ^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/model_executor/models/qwen2.py", line 513, in load_weights
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     return loader.load_weights(weights)
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/model_executor/models/utils.py", line 233, in load_weights
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     autoloaded_weights = set(self._load_module("", self.module, weights))
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/model_executor/models/utils.py", line 185, in _load_module
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     for child_prefix, child_weights in self._groupby_prefix(weights):
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/model_executor/models/utils.py", line 99, in _groupby_prefix
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     for prefix, group in itertools.groupby(weights_by_parts,
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/model_executor/models/utils.py", line 97, in <genexpr>
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     for weight_name, weight_data in weights)
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]                                     ^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/model_executor/model_loader/loader.py", line 355, in _get_all_weights
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     yield from self._get_weights_iterator(primary_weights)
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/model_executor/model_loader/loader.py", line 308, in _get_weights_iterator
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     hf_folder, hf_weights_files, use_safetensors = self._prepare_weights(
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]                                                    ^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/model_executor/model_loader/loader.py", line 261, in _prepare_weights
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     hf_folder = download_weights_from_hf(
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/model_executor/model_loader/weight_utils.py", line 255, in download_weights_from_hf
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     hf_folder = snapshot_download(
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]                 ^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     return fn(*args, **kwargs)
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]            ^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/huggingface_hub/_snapshot_download.py", line 296, in snapshot_download
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     thread_map(
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/tqdm/contrib/concurrent.py", line 69, in thread_map
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     return _executor_map(ThreadPoolExecutor, fn, *iterables, **tqdm_kwargs)
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/tqdm/contrib/concurrent.py", line 51, in _executor_map
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     return list(tqdm_class(ex.map(fn, *iterables, chunksize=chunksize), **kwargs))
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/tqdm/std.py", line 1169, in __iter__
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     for obj in iterable:
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]                ^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/concurrent/futures/_base.py", line 619, in result_iterator
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     yield _result_or_cancel(fs.pop())
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/concurrent/futures/_base.py", line 317, in _result_or_cancel
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     return fut.result(timeout)
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]            ^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     return self.__get_result()
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]            ^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     raise self._exception
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     result = self.fn(*self.args, **self.kwargs)
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/huggingface_hub/_snapshot_download.py", line 270, in _inner_hf_hub_download
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     return hf_hub_download(
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]            ^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     return fn(*args, **kwargs)
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]            ^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 860, in hf_hub_download
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     return _hf_hub_download_to_cache_dir(
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1009, in _hf_hub_download_to_cache_dir
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     _download_to_tmp_and_move(
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1543, in _download_to_tmp_and_move
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     http_get(
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]   File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 455, in http_get
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240]     temp_file.write(chunk)
+[1;36m(VllmWorkerProcess pid=3169242)[0;0m ERROR 02-11 20:02:13 multiproc_worker_utils.py:240] OSError: [Errno 122] Disk quota exceeded
+ERROR 02-11 20:02:52 multiproc_worker_utils.py:122] Worker VllmWorkerProcess pid 3169243 died, exit code: -15
+INFO 02-11 20:02:52 multiproc_worker_utils.py:126] Killing local vLLM worker processes
