@@ -1,0 +1,1 @@
+words_to_discourage = ["wait","Wait","maybe","Maybe","But","but","Alternative","I"]

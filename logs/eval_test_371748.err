@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "/net/scratch/jingyang/ShorterBetter/eval/Coding/human_eval/evaluate_human_eval.py", line 4, in <module>
-    import pandas as pd
-ModuleNotFoundError: No module named 'pandas'
-/var/spool/slurmd/job371748/slurm_script: line 164: syntax error near unexpected token `done'
-/var/spool/slurmd/job371748/slurm_script: line 164: `done'

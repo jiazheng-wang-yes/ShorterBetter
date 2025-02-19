@@ -1,0 +1,3 @@
+SVAMP Accuracy = 826/1000 = 0.826
+gsmplus_test Accuracy = 6601/10552 = 0.626
+asdiv Accuracy = 506/618 = 0.819

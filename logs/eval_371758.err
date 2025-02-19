@@ -1,18 +1,0 @@
-Map:   0%|          | 0/164 [00:00<?, ? examples/s]Map: 100%|██████████| 164/164 [00:00<00:00, 2583.34 examples/s]
-Map:   0%|          | 0/164 [00:00<?, ? examples/s]Map: 100%|██████████| 164/164 [00:00<00:00, 4011.23 examples/s]
-Traceback (most recent call last):
-  File "/net/scratch/jingyang/ShorterBetter/eval/Coding/human_eval/evaluate_human_eval.py", line 120, in <module>
-    completions = generate_sample_batch(problems["instruction"])
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/net/scratch/jingyang/ShorterBetter/eval/Coding/human_eval/evaluate_human_eval.py", line 40, in generate_sample_batch
-    llm = LLM(
-          ^^^^
-  File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/utils.py", line 1039, in inner
-    return fn(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^
-  File "/home/jingyang22/.conda/envs/rp/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 210, in __init__
-    engine_args = EngineArgs(
-                  ^^^^^^^^^^^
-TypeError: EngineArgs.__init__() got an unexpected keyword argument 'model_dir'
-/var/spool/slurmd/job371758/slurm_script: line 169: syntax error near unexpected token `done'
-/var/spool/slurmd/job371758/slurm_script: line 169: `done'

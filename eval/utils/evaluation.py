@@ -42,13 +42,14 @@ def evaluate_functional_correctness(
     n_workers: int = 4,
     timeout: float = 3.0,
     problem_file: str = HUMAN_EVAL,
+    num_samples: int = None
 ):
     """
     Evaluates the functional correctness of generated samples, and writes
     results to f"{sample_file}_results.jsonl.gz"
     """
 
-    problems = read_problems(problem_file)
+    problems = read_problems(problem_file, num_samples)
 
     # Check the generated samples against test suites.
     with ThreadPoolExecutor(max_workers=n_workers) as executor:

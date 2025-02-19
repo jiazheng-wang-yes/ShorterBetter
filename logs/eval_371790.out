@@ -1,0 +1,820 @@
+running human_eval evaluation
+INFO 02-11 22:38:14 __init__.py:183] Automatically detected platform cuda.
+INFO 02-11 22:38:40 config.py:526] This model supports multiple tasks: {'classify', 'reward', 'generate', 'score', 'embed'}. Defaulting to 'generate'.
+INFO 02-11 22:38:40 config.py:1383] Defaulting to use mp for distributed inference
+INFO 02-11 22:38:40 llm_engine.py:232] Initializing a V0 LLM engine (v0.7.1) with config: model='Qwen/QwQ-32B-Preview', speculative_config=None, tokenizer='Qwen/QwQ-32B-Preview', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=4, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=Qwen/QwQ-32B-Preview, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":256}, use_cached_outputs=False, 
+WARNING 02-11 22:38:41 multiproc_worker_utils.py:298] Reducing Torch parallelism from 16 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+INFO 02-11 22:38:41 custom_cache_manager.py:17] Setting Triton cache manager to: vllm.triton_utils.custom_cache_manager:CustomCacheManager
+[1;36m(VllmWorkerProcess pid=2270232)[0;0m INFO 02-11 22:38:41 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=2270233)[0;0m INFO 02-11 22:38:41 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=2270234)[0;0m INFO 02-11 22:38:41 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=2270234)[0;0m INFO 02-11 22:38:43 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2270233)[0;0m INFO 02-11 22:38:43 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2270232)[0;0m INFO 02-11 22:38:43 cuda.py:235] Using Flash Attention backend.
+INFO 02-11 22:38:43 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2270232)[0;0m INFO 02-11 22:38:45 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2270232)[0;0m INFO 02-11 22:38:45 pynccl.py:67] vLLM is using nccl==2.21.5
+INFO 02-11 22:38:45 utils.py:938] Found nccl from library libnccl.so.2
+INFO 02-11 22:38:45 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2270234)[0;0m INFO 02-11 22:38:45 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2270233)[0;0m INFO 02-11 22:38:45 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2270233)[0;0m INFO 02-11 22:38:45 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2270234)[0;0m INFO 02-11 22:38:45 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2270233)[0;0m WARNING 02-11 22:38:47 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=2270232)[0;0m WARNING 02-11 22:38:47 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=2270234)[0;0m WARNING 02-11 22:38:47 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+WARNING 02-11 22:38:47 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+INFO 02-11 22:38:47 shm_broadcast.py:256] vLLM message queue communication handle: Handle(connect_ip='127.0.0.1', local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_60af7506'), local_subscribe_port=44281, remote_subscribe_port=None)
+INFO 02-11 22:38:47 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2270232)[0;0m INFO 02-11 22:38:47 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2270234)[0;0m INFO 02-11 22:38:47 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2270233)[0;0m INFO 02-11 22:38:47 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+INFO 02-11 22:38:49 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2270233)[0;0m INFO 02-11 22:38:49 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2270234)[0;0m INFO 02-11 22:38:49 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2270232)[0;0m INFO 02-11 22:38:49 weight_utils.py:251] Using model weights format ['*.safetensors']
+INFO 02-11 22:41:55 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2270233)[0;0m INFO 02-11 22:41:55 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2270234)[0;0m INFO 02-11 22:41:55 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2270232)[0;0m INFO 02-11 22:41:55 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2270233)[0;0m INFO 02-11 22:42:24 worker.py:266] Memory profiling takes 28.78 seconds
+[1;36m(VllmWorkerProcess pid=2270233)[0;0m INFO 02-11 22:42:24 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2270233)[0;0m INFO 02-11 22:42:24 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.73GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.27GiB.
+[1;36m(VllmWorkerProcess pid=2270234)[0;0m INFO 02-11 22:42:24 worker.py:266] Memory profiling takes 28.83 seconds
+[1;36m(VllmWorkerProcess pid=2270234)[0;0m INFO 02-11 22:42:24 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2270234)[0;0m INFO 02-11 22:42:24 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.73GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.27GiB.
+[1;36m(VllmWorkerProcess pid=2270232)[0;0m INFO 02-11 22:42:24 worker.py:266] Memory profiling takes 28.83 seconds
+[1;36m(VllmWorkerProcess pid=2270232)[0;0m INFO 02-11 22:42:24 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2270232)[0;0m INFO 02-11 22:42:24 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.74GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.26GiB.
+INFO 02-11 22:42:25 worker.py:266] Memory profiling takes 29.71 seconds
+INFO 02-11 22:42:25 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+INFO 02-11 22:42:25 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.78GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.22GiB.
+INFO 02-11 22:42:25 executor_base.py:108] # CUDA blocks: 53473, # CPU blocks: 4096
+INFO 02-11 22:42:25 executor_base.py:113] Maximum concurrency for 32768 tokens per request: 26.11x
+[1;36m(VllmWorkerProcess pid=2270233)[0;0m INFO 02-11 22:42:28 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 02-11 22:42:28 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2270232)[0;0m INFO 02-11 22:42:28 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2270234)[0;0m INFO 02-11 22:42:28 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2270233)[0;0m INFO 02-11 22:42:47 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+[1;36m(VllmWorkerProcess pid=2270232)[0;0m INFO 02-11 22:42:47 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+[1;36m(VllmWorkerProcess pid=2270234)[0;0m INFO 02-11 22:42:47 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+INFO 02-11 22:42:47 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+INFO 02-11 22:42:47 llm_engine.py:429] init engine (profile, create kv cache, warmup model) took 51.33 seconds
+INFO 02-11 22:43:19 multiproc_worker_utils.py:139] Terminating local vLLM worker processes
+[1;36m(VllmWorkerProcess pid=2270232)[0;0m INFO 02-11 22:43:19 multiproc_worker_utils.py:251] Worker exiting
+[1;36m(VllmWorkerProcess pid=2270233)[0;0m INFO 02-11 22:43:19 multiproc_worker_utils.py:251] Worker exiting
+[1;36m(VllmWorkerProcess pid=2270234)[0;0m INFO 02-11 22:43:19 multiproc_worker_utils.py:251] Worker exiting
+Reading samples...
+Running test suites...
+Writing results to /net/scratch/jingyang/ShorterBetter/eval_outputs/humaneval/samples.jsonl_results.jsonl...
+{'pass@1': 0.8719512195121951}
+{'pass@1': 87.1951219512195}
+running leetcode evaluation
+INFO 02-11 22:43:43 __init__.py:183] Automatically detected platform cuda.
+leetcode-test.json
+running mbpp evaluation
+INFO 02-11 22:43:49 __init__.py:183] Automatically detected platform cuda.
+INFO 02-11 22:43:56 config.py:526] This model supports multiple tasks: {'score', 'reward', 'embed', 'generate', 'classify'}. Defaulting to 'generate'.
+INFO 02-11 22:43:56 config.py:1383] Defaulting to use mp for distributed inference
+INFO 02-11 22:43:56 llm_engine.py:232] Initializing a V0 LLM engine (v0.7.1) with config: model='Qwen/QwQ-32B-Preview', speculative_config=None, tokenizer='Qwen/QwQ-32B-Preview', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=4, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=Qwen/QwQ-32B-Preview, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":256}, use_cached_outputs=False, 
+WARNING 02-11 22:43:57 multiproc_worker_utils.py:298] Reducing Torch parallelism from 16 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+INFO 02-11 22:43:57 custom_cache_manager.py:17] Setting Triton cache manager to: vllm.triton_utils.custom_cache_manager:CustomCacheManager
+[1;36m(VllmWorkerProcess pid=2278601)[0;0m INFO 02-11 22:43:57 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=2278602)[0;0m INFO 02-11 22:43:57 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=2278603)[0;0m INFO 02-11 22:43:57 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+INFO 02-11 22:43:58 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2278603)[0;0m INFO 02-11 22:43:58 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2278602)[0;0m INFO 02-11 22:43:58 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2278601)[0;0m INFO 02-11 22:43:58 cuda.py:235] Using Flash Attention backend.
+INFO 02-11 22:44:00 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2278601)[0;0m INFO 02-11 22:44:00 utils.py:938] Found nccl from library libnccl.so.2
+INFO 02-11 22:44:00 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2278601)[0;0m INFO 02-11 22:44:00 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2278602)[0;0m INFO 02-11 22:44:00 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2278603)[0;0m INFO 02-11 22:44:00 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2278602)[0;0m INFO 02-11 22:44:00 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2278603)[0;0m INFO 02-11 22:44:00 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2278602)[0;0m WARNING 02-11 22:44:00 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=2278603)[0;0m WARNING 02-11 22:44:00 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=2278601)[0;0m WARNING 02-11 22:44:00 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+WARNING 02-11 22:44:00 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+INFO 02-11 22:44:00 shm_broadcast.py:256] vLLM message queue communication handle: Handle(connect_ip='127.0.0.1', local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_4b8d4225'), local_subscribe_port=50341, remote_subscribe_port=None)
+INFO 02-11 22:44:00 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2278602)[0;0m INFO 02-11 22:44:00 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2278601)[0;0m INFO 02-11 22:44:00 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2278603)[0;0m INFO 02-11 22:44:00 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+INFO 02-11 22:44:01 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2278602)[0;0m INFO 02-11 22:44:01 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2278601)[0;0m INFO 02-11 22:44:01 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2278603)[0;0m INFO 02-11 22:44:01 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2278601)[0;0m INFO 02-11 22:44:10 model_runner.py:1116] Loading model weights took 15.3917 GB
+INFO 02-11 22:44:10 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2278603)[0;0m INFO 02-11 22:44:10 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2278602)[0;0m INFO 02-11 22:44:10 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2278603)[0;0m INFO 02-11 22:44:16 worker.py:266] Memory profiling takes 5.73 seconds
+[1;36m(VllmWorkerProcess pid=2278603)[0;0m INFO 02-11 22:44:16 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2278603)[0;0m INFO 02-11 22:44:16 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.73GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.27GiB.
+[1;36m(VllmWorkerProcess pid=2278601)[0;0m INFO 02-11 22:44:16 worker.py:266] Memory profiling takes 5.75 seconds
+[1;36m(VllmWorkerProcess pid=2278601)[0;0m INFO 02-11 22:44:16 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2278601)[0;0m INFO 02-11 22:44:16 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.74GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.26GiB.
+[1;36m(VllmWorkerProcess pid=2278602)[0;0m INFO 02-11 22:44:16 worker.py:266] Memory profiling takes 5.77 seconds
+[1;36m(VllmWorkerProcess pid=2278602)[0;0m INFO 02-11 22:44:16 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2278602)[0;0m INFO 02-11 22:44:16 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.73GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.27GiB.
+INFO 02-11 22:44:16 worker.py:266] Memory profiling takes 5.80 seconds
+INFO 02-11 22:44:16 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+INFO 02-11 22:44:16 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.78GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.22GiB.
+INFO 02-11 22:44:17 executor_base.py:108] # CUDA blocks: 53473, # CPU blocks: 4096
+INFO 02-11 22:44:17 executor_base.py:113] Maximum concurrency for 32768 tokens per request: 26.11x
+[1;36m(VllmWorkerProcess pid=2278603)[0;0m INFO 02-11 22:44:20 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2278601)[0;0m INFO 02-11 22:44:20 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2278602)[0;0m INFO 02-11 22:44:20 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 02-11 22:44:20 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2278603)[0;0m INFO 02-11 22:44:37 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+[1;36m(VllmWorkerProcess pid=2278602)[0;0m INFO 02-11 22:44:37 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+[1;36m(VllmWorkerProcess pid=2278601)[0;0m INFO 02-11 22:44:37 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+INFO 02-11 22:44:37 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+INFO 02-11 22:44:37 llm_engine.py:429] init engine (profile, create kv cache, warmup model) took 26.83 seconds
+INFO 02-11 22:45:00 multiproc_worker_utils.py:139] Terminating local vLLM worker processes
+[1;36m(VllmWorkerProcess pid=2278601)[0;0m INFO 02-11 22:45:00 multiproc_worker_utils.py:251] Worker exiting
+[1;36m(VllmWorkerProcess pid=2278602)[0;0m INFO 02-11 22:45:00 multiproc_worker_utils.py:251] Worker exiting
+[1;36m(VllmWorkerProcess pid=2278603)[0;0m INFO 02-11 22:45:00 multiproc_worker_utils.py:251] Worker exiting
+{'accuracy': 77.44360902255639, 'exec_error': 19.79949874686717, 'format_error': 2.756892230576441}
+running math-cot evaluation
+INFO 02-11 22:45:11 __init__.py:183] Automatically detected platform cuda.
+INFO 02-11 22:45:19 config.py:526] This model supports multiple tasks: {'embed', 'generate', 'classify', 'score', 'reward'}. Defaulting to 'generate'.
+INFO 02-11 22:45:19 config.py:1383] Defaulting to use mp for distributed inference
+INFO 02-11 22:45:19 llm_engine.py:232] Initializing a V0 LLM engine (v0.7.1) with config: model='Qwen/QwQ-32B-Preview', speculative_config=None, tokenizer='Qwen/QwQ-32B-Preview', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=4, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=Qwen/QwQ-32B-Preview, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":256}, use_cached_outputs=False, 
+WARNING 02-11 22:45:20 multiproc_worker_utils.py:298] Reducing Torch parallelism from 16 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+INFO 02-11 22:45:20 custom_cache_manager.py:17] Setting Triton cache manager to: vllm.triton_utils.custom_cache_manager:CustomCacheManager
+[1;36m(VllmWorkerProcess pid=2280433)[0;0m INFO 02-11 22:45:20 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=2280434)[0;0m INFO 02-11 22:45:20 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=2280435)[0;0m INFO 02-11 22:45:20 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+INFO 02-11 22:45:21 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2280433)[0;0m INFO 02-11 22:45:21 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2280435)[0;0m INFO 02-11 22:45:21 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2280434)[0;0m INFO 02-11 22:45:21 cuda.py:235] Using Flash Attention backend.
+INFO 02-11 22:45:22 utils.py:938] Found nccl from library libnccl.so.2
+INFO 02-11 22:45:22 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2280434)[0;0m INFO 02-11 22:45:22 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2280433)[0;0m INFO 02-11 22:45:22 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2280434)[0;0m INFO 02-11 22:45:22 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2280433)[0;0m INFO 02-11 22:45:22 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2280435)[0;0m INFO 02-11 22:45:22 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2280435)[0;0m INFO 02-11 22:45:22 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2280433)[0;0m WARNING 02-11 22:45:23 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=2280434)[0;0m WARNING 02-11 22:45:23 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+WARNING 02-11 22:45:23 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=2280435)[0;0m WARNING 02-11 22:45:23 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+INFO 02-11 22:45:23 shm_broadcast.py:256] vLLM message queue communication handle: Handle(connect_ip='127.0.0.1', local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_efcf4f61'), local_subscribe_port=38861, remote_subscribe_port=None)
+INFO 02-11 22:45:23 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2280433)[0;0m INFO 02-11 22:45:23 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2280435)[0;0m INFO 02-11 22:45:23 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2280434)[0;0m INFO 02-11 22:45:23 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+INFO 02-11 22:45:24 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2280434)[0;0m INFO 02-11 22:45:24 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2280435)[0;0m INFO 02-11 22:45:24 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2280433)[0;0m INFO 02-11 22:45:24 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2280434)[0;0m INFO 02-11 22:45:32 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2280433)[0;0m INFO 02-11 22:45:32 model_runner.py:1116] Loading model weights took 15.3917 GB
+INFO 02-11 22:45:32 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2280435)[0;0m INFO 02-11 22:45:33 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2280435)[0;0m INFO 02-11 22:45:39 worker.py:266] Memory profiling takes 5.55 seconds
+[1;36m(VllmWorkerProcess pid=2280435)[0;0m INFO 02-11 22:45:39 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2280435)[0;0m INFO 02-11 22:45:39 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.73GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.27GiB.
+[1;36m(VllmWorkerProcess pid=2280434)[0;0m INFO 02-11 22:45:39 worker.py:266] Memory profiling takes 5.55 seconds
+[1;36m(VllmWorkerProcess pid=2280434)[0;0m INFO 02-11 22:45:39 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2280434)[0;0m INFO 02-11 22:45:39 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.73GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.27GiB.
+[1;36m(VllmWorkerProcess pid=2280433)[0;0m INFO 02-11 22:45:39 worker.py:266] Memory profiling takes 5.57 seconds
+[1;36m(VllmWorkerProcess pid=2280433)[0;0m INFO 02-11 22:45:39 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2280433)[0;0m INFO 02-11 22:45:39 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.74GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.26GiB.
+INFO 02-11 22:45:39 worker.py:266] Memory profiling takes 5.58 seconds
+INFO 02-11 22:45:39 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+INFO 02-11 22:45:39 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.78GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.22GiB.
+INFO 02-11 22:45:39 executor_base.py:108] # CUDA blocks: 53473, # CPU blocks: 4096
+INFO 02-11 22:45:39 executor_base.py:113] Maximum concurrency for 32768 tokens per request: 26.11x
+INFO 02-11 22:45:42 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2280435)[0;0m INFO 02-11 22:45:42 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2280433)[0;0m INFO 02-11 22:45:42 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2280434)[0;0m INFO 02-11 22:45:42 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2280434)[0;0m INFO 02-11 22:46:00 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+INFO 02-11 22:46:00 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+[1;36m(VllmWorkerProcess pid=2280433)[0;0m INFO 02-11 22:46:00 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+[1;36m(VllmWorkerProcess pid=2280435)[0;0m INFO 02-11 22:46:00 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+INFO 02-11 22:46:00 llm_engine.py:429] init engine (profile, create kv cache, warmup model) took 26.62 seconds
+INFO 02-11 23:09:33 multiproc_worker_utils.py:139] Terminating local vLLM worker processes
+[1;36m(VllmWorkerProcess pid=2280433)[0;0m INFO 02-11 23:09:33 multiproc_worker_utils.py:251] Worker exiting
+[1;36m(VllmWorkerProcess pid=2280434)[0;0m INFO 02-11 23:09:33 multiproc_worker_utils.py:251] Worker exiting
+[1;36m(VllmWorkerProcess pid=2280435)[0;0m INFO 02-11 23:09:33 multiproc_worker_utils.py:251] Worker exiting
+Match rate:  0.318
+Prealgebra Level 1 Accuracy = 46/86 = 0.535
+Prealgebra Level 2 Accuracy = 110/177 = 0.621
+Prealgebra Level 3 Accuracy = 120/224 = 0.536
+Prealgebra Level 4 Accuracy = 77/191 = 0.403
+Prealgebra Level 5 Accuracy = 52/193 = 0.269
+Algebra Level 1 Accuracy = 100/135 = 0.741
+Algebra Level 2 Accuracy = 113/201 = 0.562
+Algebra Level 3 Accuracy = 125/261 = 0.479
+Algebra Level 4 Accuracy = 95/283 = 0.336
+Algebra Level 5 Accuracy = 54/307 = 0.176
+Number Theory Level 1 Accuracy = 14/30 = 0.467
+Number Theory Level 2 Accuracy = 19/92 = 0.207
+Number Theory Level 3 Accuracy = 26/122 = 0.213
+Number Theory Level 4 Accuracy = 24/142 = 0.169
+Number Theory Level 5 Accuracy = 10/154 = 0.065
+Counting & Probability Level 1 Accuracy = 18/39 = 0.462
+Counting & Probability Level 2 Accuracy = 38/101 = 0.376
+Counting & Probability Level 3 Accuracy = 20/100 = 0.200
+Counting & Probability Level 4 Accuracy = 8/111 = 0.072
+Counting & Probability Level 5 Accuracy = 5/123 = 0.041
+Geometry Level 1 Accuracy = 14/38 = 0.368
+Geometry Level 2 Accuracy = 36/82 = 0.439
+Geometry Level 3 Accuracy = 25/102 = 0.245
+Geometry Level 4 Accuracy = 19/125 = 0.152
+Geometry Level 5 Accuracy = 7/132 = 0.053
+Intermediate Algebra Level 1 Accuracy = 18/52 = 0.346
+Intermediate Algebra Level 2 Accuracy = 25/128 = 0.195
+Intermediate Algebra Level 3 Accuracy = 16/195 = 0.082
+Intermediate Algebra Level 4 Accuracy = 10/248 = 0.040
+Intermediate Algebra Level 5 Accuracy = 2/280 = 0.007
+Precalculus Level 1 Accuracy = 21/57 = 0.368
+Precalculus Level 2 Accuracy = 19/113 = 0.168
+Precalculus Level 3 Accuracy = 14/127 = 0.110
+Precalculus Level 4 Accuracy = 4/114 = 0.035
+Precalculus Level 5 Accuracy = 1/135 = 0.007
+#####################
+Level 1 Accuracy = 231/437 = 0.529
+Level 2 Accuracy = 360/894 = 0.403
+Level 3 Accuracy = 346/1131 = 0.306
+Level 4 Accuracy = 237/1214 = 0.195
+Level 5 Accuracy = 131/1324 = 0.099
+#####################
+Prealgebra Accuracy = 405/871 = 0.465
+Algebra Accuracy = 487/1187 = 0.410
+Number Theory Accuracy = 93/540 = 0.172
+Counting & Probability Accuracy = 89/474 = 0.188
+Geometry Accuracy = 101/479 = 0.211
+Intermediate Algebra Accuracy = 71/903 = 0.079
+Precalculus Accuracy = 59/546 = 0.108
+#####################
+Overall Accuracy = 1305/5000 = 26.100
+running math-pot evaluation
+INFO 02-11 23:09:47 __init__.py:183] Automatically detected platform cuda.
+INFO 02-11 23:09:54 config.py:526] This model supports multiple tasks: {'classify', 'embed', 'reward', 'generate', 'score'}. Defaulting to 'generate'.
+INFO 02-11 23:09:54 config.py:1383] Defaulting to use mp for distributed inference
+INFO 02-11 23:09:54 llm_engine.py:232] Initializing a V0 LLM engine (v0.7.1) with config: model='Qwen/QwQ-32B-Preview', speculative_config=None, tokenizer='Qwen/QwQ-32B-Preview', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=4, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=Qwen/QwQ-32B-Preview, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":256}, use_cached_outputs=False, 
+WARNING 02-11 23:09:55 multiproc_worker_utils.py:298] Reducing Torch parallelism from 16 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+INFO 02-11 23:09:55 custom_cache_manager.py:17] Setting Triton cache manager to: vllm.triton_utils.custom_cache_manager:CustomCacheManager
+[1;36m(VllmWorkerProcess pid=2306676)[0;0m INFO 02-11 23:09:55 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=2306677)[0;0m INFO 02-11 23:09:55 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=2306678)[0;0m INFO 02-11 23:09:55 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+INFO 02-11 23:09:56 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2306678)[0;0m INFO 02-11 23:09:56 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2306676)[0;0m INFO 02-11 23:09:56 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2306677)[0;0m INFO 02-11 23:09:56 cuda.py:235] Using Flash Attention backend.
+INFO 02-11 23:09:58 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2306677)[0;0m INFO 02-11 23:09:58 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2306676)[0;0m INFO 02-11 23:09:58 utils.py:938] Found nccl from library libnccl.so.2
+INFO 02-11 23:09:58 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2306677)[0;0m INFO 02-11 23:09:58 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2306678)[0;0m INFO 02-11 23:09:58 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2306676)[0;0m INFO 02-11 23:09:58 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2306678)[0;0m INFO 02-11 23:09:58 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2306678)[0;0m WARNING 02-11 23:09:59 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+WARNING 02-11 23:09:59 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=2306677)[0;0m WARNING 02-11 23:09:59 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=2306676)[0;0m WARNING 02-11 23:09:59 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+INFO 02-11 23:09:59 shm_broadcast.py:256] vLLM message queue communication handle: Handle(connect_ip='127.0.0.1', local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_dcb5588c'), local_subscribe_port=38489, remote_subscribe_port=None)
+INFO 02-11 23:09:59 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2306677)[0;0m INFO 02-11 23:09:59 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2306676)[0;0m INFO 02-11 23:09:59 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2306678)[0;0m INFO 02-11 23:09:59 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+INFO 02-11 23:09:59 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2306676)[0;0m INFO 02-11 23:09:59 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2306678)[0;0m INFO 02-11 23:09:59 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2306677)[0;0m INFO 02-11 23:09:59 weight_utils.py:251] Using model weights format ['*.safetensors']
+INFO 02-11 23:10:07 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2306676)[0;0m INFO 02-11 23:10:07 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2306677)[0;0m INFO 02-11 23:10:07 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2306678)[0;0m INFO 02-11 23:10:07 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2306677)[0;0m INFO 02-11 23:10:14 worker.py:266] Memory profiling takes 6.19 seconds
+[1;36m(VllmWorkerProcess pid=2306677)[0;0m INFO 02-11 23:10:14 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2306677)[0;0m INFO 02-11 23:10:14 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.73GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.27GiB.
+[1;36m(VllmWorkerProcess pid=2306676)[0;0m INFO 02-11 23:10:14 worker.py:266] Memory profiling takes 6.20 seconds
+[1;36m(VllmWorkerProcess pid=2306676)[0;0m INFO 02-11 23:10:14 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2306676)[0;0m INFO 02-11 23:10:14 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.74GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.26GiB.
+[1;36m(VllmWorkerProcess pid=2306678)[0;0m INFO 02-11 23:10:14 worker.py:266] Memory profiling takes 6.19 seconds
+[1;36m(VllmWorkerProcess pid=2306678)[0;0m INFO 02-11 23:10:14 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2306678)[0;0m INFO 02-11 23:10:14 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.73GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.27GiB.
+INFO 02-11 23:10:14 worker.py:266] Memory profiling takes 6.21 seconds
+INFO 02-11 23:10:14 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+INFO 02-11 23:10:14 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.78GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.22GiB.
+INFO 02-11 23:10:14 executor_base.py:108] # CUDA blocks: 53473, # CPU blocks: 4096
+INFO 02-11 23:10:14 executor_base.py:113] Maximum concurrency for 32768 tokens per request: 26.11x
+[1;36m(VllmWorkerProcess pid=2306676)[0;0m INFO 02-11 23:10:17 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2306678)[0;0m INFO 02-11 23:10:17 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2306677)[0;0m INFO 02-11 23:10:17 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 02-11 23:10:17 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2306677)[0;0m INFO 02-11 23:10:35 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+[1;36m(VllmWorkerProcess pid=2306678)[0;0m INFO 02-11 23:10:35 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+[1;36m(VllmWorkerProcess pid=2306676)[0;0m INFO 02-11 23:10:35 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+INFO 02-11 23:10:35 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+INFO 02-11 23:10:35 llm_engine.py:429] init engine (profile, create kv cache, warmup model) took 27.35 seconds
+llm tensor_parallel_size: 4
+ERROR 02-11 23:49:39 multiproc_worker_utils.py:122] Worker VllmWorkerProcess pid 2306676 died, exit code: -15
+INFO 02-11 23:49:39 multiproc_worker_utils.py:126] Killing local vLLM worker processes
+running asdiv&gsmplus&svamp cot evaluation
+INFO 02-11 23:49:51 __init__.py:183] Automatically detected platform cuda.
+INFO 02-11 23:49:59 config.py:526] This model supports multiple tasks: {'score', 'embed', 'generate', 'classify', 'reward'}. Defaulting to 'generate'.
+INFO 02-11 23:49:59 config.py:1383] Defaulting to use mp for distributed inference
+INFO 02-11 23:49:59 llm_engine.py:232] Initializing a V0 LLM engine (v0.7.1) with config: model='Qwen/QwQ-32B-Preview', speculative_config=None, tokenizer='Qwen/QwQ-32B-Preview', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=4, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=Qwen/QwQ-32B-Preview, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":256}, use_cached_outputs=False, 
+WARNING 02-11 23:50:00 multiproc_worker_utils.py:298] Reducing Torch parallelism from 16 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+INFO 02-11 23:50:00 custom_cache_manager.py:17] Setting Triton cache manager to: vllm.triton_utils.custom_cache_manager:CustomCacheManager
+[1;36m(VllmWorkerProcess pid=2348939)[0;0m INFO 02-11 23:50:00 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=2348940)[0;0m INFO 02-11 23:50:00 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=2348941)[0;0m INFO 02-11 23:50:00 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+INFO 02-11 23:50:01 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2348940)[0;0m INFO 02-11 23:50:01 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2348939)[0;0m INFO 02-11 23:50:01 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2348941)[0;0m INFO 02-11 23:50:01 cuda.py:235] Using Flash Attention backend.
+INFO 02-11 23:50:02 utils.py:938] Found nccl from library libnccl.so.2
+INFO 02-11 23:50:02 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2348940)[0;0m INFO 02-11 23:50:02 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2348939)[0;0m INFO 02-11 23:50:02 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2348940)[0;0m INFO 02-11 23:50:02 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2348939)[0;0m INFO 02-11 23:50:02 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2348941)[0;0m INFO 02-11 23:50:02 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2348941)[0;0m INFO 02-11 23:50:02 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2348941)[0;0m WARNING 02-11 23:50:03 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=2348939)[0;0m WARNING 02-11 23:50:03 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+WARNING 02-11 23:50:03 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=2348940)[0;0m WARNING 02-11 23:50:03 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+INFO 02-11 23:50:03 shm_broadcast.py:256] vLLM message queue communication handle: Handle(connect_ip='127.0.0.1', local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_96c9038d'), local_subscribe_port=35951, remote_subscribe_port=None)
+INFO 02-11 23:50:03 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2348940)[0;0m INFO 02-11 23:50:03 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2348939)[0;0m INFO 02-11 23:50:03 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2348941)[0;0m INFO 02-11 23:50:03 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+INFO 02-11 23:50:04 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2348939)[0;0m INFO 02-11 23:50:04 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2348940)[0;0m INFO 02-11 23:50:04 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2348941)[0;0m INFO 02-11 23:50:04 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2348939)[0;0m INFO 02-11 23:50:12 model_runner.py:1116] Loading model weights took 15.3917 GB
+INFO 02-11 23:50:12 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2348940)[0;0m INFO 02-11 23:50:13 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2348941)[0;0m INFO 02-11 23:50:13 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2348940)[0;0m INFO 02-11 23:50:19 worker.py:266] Memory profiling takes 6.14 seconds
+[1;36m(VllmWorkerProcess pid=2348940)[0;0m INFO 02-11 23:50:19 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2348940)[0;0m INFO 02-11 23:50:19 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.73GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.27GiB.
+[1;36m(VllmWorkerProcess pid=2348941)[0;0m INFO 02-11 23:50:19 worker.py:266] Memory profiling takes 6.14 seconds
+[1;36m(VllmWorkerProcess pid=2348941)[0;0m INFO 02-11 23:50:19 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2348941)[0;0m INFO 02-11 23:50:19 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.73GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.27GiB.
+[1;36m(VllmWorkerProcess pid=2348939)[0;0m INFO 02-11 23:50:19 worker.py:266] Memory profiling takes 6.15 seconds
+[1;36m(VllmWorkerProcess pid=2348939)[0;0m INFO 02-11 23:50:19 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2348939)[0;0m INFO 02-11 23:50:19 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.74GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.26GiB.
+INFO 02-11 23:50:19 worker.py:266] Memory profiling takes 6.22 seconds
+INFO 02-11 23:50:19 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+INFO 02-11 23:50:19 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.78GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.22GiB.
+INFO 02-11 23:50:19 executor_base.py:108] # CUDA blocks: 53473, # CPU blocks: 4096
+INFO 02-11 23:50:19 executor_base.py:113] Maximum concurrency for 32768 tokens per request: 26.11x
+[1;36m(VllmWorkerProcess pid=2348940)[0;0m INFO 02-11 23:50:22 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2348941)[0;0m INFO 02-11 23:50:22 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2348939)[0;0m INFO 02-11 23:50:22 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 02-11 23:50:22 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2348940)[0;0m INFO 02-11 23:50:40 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+[1;36m(VllmWorkerProcess pid=2348939)[0;0m INFO 02-11 23:50:40 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+[1;36m(VllmWorkerProcess pid=2348941)[0;0m INFO 02-11 23:50:40 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+INFO 02-11 23:50:40 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+INFO 02-11 23:50:40 llm_engine.py:429] init engine (profile, create kv cache, warmup model) took 27.23 seconds
+SVAMP Overall Accuracy = 826/1000 = 0.826
+gsmplus_test Overall Accuracy = 6601/10552 = 0.626
+asdiv Overall Accuracy = 506/618 = 0.819
+INFO 02-12 00:36:30 multiproc_worker_utils.py:139] Terminating local vLLM worker processes
+[1;36m(VllmWorkerProcess pid=2348939)[0;0m INFO 02-12 00:36:30 multiproc_worker_utils.py:251] Worker exiting
+[1;36m(VllmWorkerProcess pid=2348941)[0;0m INFO 02-12 00:36:30 multiproc_worker_utils.py:251] Worker exiting
+[1;36m(VllmWorkerProcess pid=2348940)[0;0m INFO 02-12 00:36:30 multiproc_worker_utils.py:251] Worker exiting
+running asdiv&gsmplus&svamp pot evaluation
+INFO 02-12 00:36:44 __init__.py:183] Automatically detected platform cuda.
+INFO 02-12 00:36:51 config.py:526] This model supports multiple tasks: {'generate', 'embed', 'classify', 'score', 'reward'}. Defaulting to 'generate'.
+INFO 02-12 00:36:51 config.py:1383] Defaulting to use mp for distributed inference
+INFO 02-12 00:36:51 llm_engine.py:232] Initializing a V0 LLM engine (v0.7.1) with config: model='Qwen/QwQ-32B-Preview', speculative_config=None, tokenizer='Qwen/QwQ-32B-Preview', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=4, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=Qwen/QwQ-32B-Preview, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":256}, use_cached_outputs=False, 
+WARNING 02-12 00:36:52 multiproc_worker_utils.py:298] Reducing Torch parallelism from 16 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+INFO 02-12 00:36:52 custom_cache_manager.py:17] Setting Triton cache manager to: vllm.triton_utils.custom_cache_manager:CustomCacheManager
+[1;36m(VllmWorkerProcess pid=2398704)[0;0m INFO 02-12 00:36:52 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=2398705)[0;0m INFO 02-12 00:36:52 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=2398706)[0;0m INFO 02-12 00:36:52 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+INFO 02-12 00:36:53 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2398704)[0;0m INFO 02-12 00:36:53 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2398706)[0;0m INFO 02-12 00:36:53 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2398705)[0;0m INFO 02-12 00:36:53 cuda.py:235] Using Flash Attention backend.
+INFO 02-12 00:36:54 utils.py:938] Found nccl from library libnccl.so.2
+INFO 02-12 00:36:54 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2398705)[0;0m INFO 02-12 00:36:54 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2398704)[0;0m INFO 02-12 00:36:54 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2398706)[0;0m INFO 02-12 00:36:54 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2398705)[0;0m INFO 02-12 00:36:54 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2398704)[0;0m INFO 02-12 00:36:54 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2398706)[0;0m INFO 02-12 00:36:54 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2398704)[0;0m WARNING 02-12 00:36:55 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=2398706)[0;0m WARNING 02-12 00:36:55 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+WARNING 02-12 00:36:55 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=2398705)[0;0m WARNING 02-12 00:36:55 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+INFO 02-12 00:36:55 shm_broadcast.py:256] vLLM message queue communication handle: Handle(connect_ip='127.0.0.1', local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_72182bb9'), local_subscribe_port=59977, remote_subscribe_port=None)
+INFO 02-12 00:36:55 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2398704)[0;0m INFO 02-12 00:36:55 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2398705)[0;0m INFO 02-12 00:36:55 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2398706)[0;0m INFO 02-12 00:36:55 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+INFO 02-12 00:36:56 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2398704)[0;0m INFO 02-12 00:36:56 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2398705)[0;0m INFO 02-12 00:36:56 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2398706)[0;0m INFO 02-12 00:36:56 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2398705)[0;0m INFO 02-12 00:37:04 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2398704)[0;0m INFO 02-12 00:37:04 model_runner.py:1116] Loading model weights took 15.3917 GB
+INFO 02-12 00:37:04 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2398706)[0;0m INFO 02-12 00:37:05 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2398706)[0;0m INFO 02-12 00:37:11 worker.py:266] Memory profiling takes 6.21 seconds
+[1;36m(VllmWorkerProcess pid=2398706)[0;0m INFO 02-12 00:37:11 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2398706)[0;0m INFO 02-12 00:37:11 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.73GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.27GiB.
+[1;36m(VllmWorkerProcess pid=2398704)[0;0m INFO 02-12 00:37:11 worker.py:266] Memory profiling takes 6.18 seconds
+[1;36m(VllmWorkerProcess pid=2398704)[0;0m INFO 02-12 00:37:11 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2398704)[0;0m INFO 02-12 00:37:11 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.74GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.26GiB.
+[1;36m(VllmWorkerProcess pid=2398705)[0;0m INFO 02-12 00:37:11 worker.py:266] Memory profiling takes 6.19 seconds
+[1;36m(VllmWorkerProcess pid=2398705)[0;0m INFO 02-12 00:37:11 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2398705)[0;0m INFO 02-12 00:37:11 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.73GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.27GiB.
+INFO 02-12 00:37:11 worker.py:266] Memory profiling takes 6.18 seconds
+INFO 02-12 00:37:11 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+INFO 02-12 00:37:11 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.78GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.22GiB.
+INFO 02-12 00:37:12 executor_base.py:108] # CUDA blocks: 53473, # CPU blocks: 4096
+INFO 02-12 00:37:12 executor_base.py:113] Maximum concurrency for 32768 tokens per request: 26.11x
+[1;36m(VllmWorkerProcess pid=2398706)[0;0m INFO 02-12 00:37:15 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 02-12 00:37:15 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2398704)[0;0m INFO 02-12 00:37:15 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2398705)[0;0m INFO 02-12 00:37:15 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2398706)[0;0m INFO 02-12 00:37:32 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+INFO 02-12 00:37:32 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+[1;36m(VllmWorkerProcess pid=2398705)[0;0m INFO 02-12 00:37:32 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+[1;36m(VllmWorkerProcess pid=2398704)[0;0m INFO 02-12 00:37:32 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+INFO 02-12 00:37:32 llm_engine.py:429] init engine (profile, create kv cache, warmup model) took 27.26 seconds
+#####################
+SVAMP Overall Accuracy = 929/1000 = 92.900%
+processing gsmplus
+conversation generated
+INFO 02-12 01:18:48 multiproc_worker_utils.py:126] Killing local vLLM worker processes
+running theorem-qa cot evaluation
+INFO 02-12 01:19:01 __init__.py:183] Automatically detected platform cuda.
+INFO 02-12 01:19:08 config.py:526] This model supports multiple tasks: {'reward', 'classify', 'generate', 'score', 'embed'}. Defaulting to 'generate'.
+INFO 02-12 01:19:08 config.py:1383] Defaulting to use mp for distributed inference
+INFO 02-12 01:19:08 llm_engine.py:232] Initializing a V0 LLM engine (v0.7.1) with config: model='Qwen/QwQ-32B-Preview', speculative_config=None, tokenizer='Qwen/QwQ-32B-Preview', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=4, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=Qwen/QwQ-32B-Preview, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":256}, use_cached_outputs=False, 
+WARNING 02-12 01:19:09 multiproc_worker_utils.py:298] Reducing Torch parallelism from 16 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+INFO 02-12 01:19:09 custom_cache_manager.py:17] Setting Triton cache manager to: vllm.triton_utils.custom_cache_manager:CustomCacheManager
+[1;36m(VllmWorkerProcess pid=2444279)[0;0m INFO 02-12 01:19:09 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=2444280)[0;0m INFO 02-12 01:19:09 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=2444281)[0;0m INFO 02-12 01:19:09 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+INFO 02-12 01:19:10 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2444281)[0;0m INFO 02-12 01:19:10 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2444280)[0;0m INFO 02-12 01:19:10 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2444279)[0;0m INFO 02-12 01:19:10 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2444281)[0;0m INFO 02-12 01:19:11 utils.py:938] Found nccl from library libnccl.so.2
+INFO 02-12 01:19:12 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2444280)[0;0m INFO 02-12 01:19:12 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2444281)[0;0m INFO 02-12 01:19:12 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2444279)[0;0m INFO 02-12 01:19:12 utils.py:938] Found nccl from library libnccl.so.2
+INFO 02-12 01:19:12 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2444280)[0;0m INFO 02-12 01:19:12 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2444279)[0;0m INFO 02-12 01:19:12 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2444280)[0;0m WARNING 02-12 01:19:12 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=2444281)[0;0m WARNING 02-12 01:19:12 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=2444279)[0;0m WARNING 02-12 01:19:12 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+WARNING 02-12 01:19:12 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+INFO 02-12 01:19:12 shm_broadcast.py:256] vLLM message queue communication handle: Handle(connect_ip='127.0.0.1', local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_1d271f1f'), local_subscribe_port=35929, remote_subscribe_port=None)
+INFO 02-12 01:19:12 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2444279)[0;0m INFO 02-12 01:19:12 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2444280)[0;0m INFO 02-12 01:19:12 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2444281)[0;0m INFO 02-12 01:19:12 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2444280)[0;0m INFO 02-12 01:19:13 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2444281)[0;0m INFO 02-12 01:19:13 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2444279)[0;0m INFO 02-12 01:19:13 weight_utils.py:251] Using model weights format ['*.safetensors']
+INFO 02-12 01:19:13 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2444280)[0;0m INFO 02-12 01:19:21 model_runner.py:1116] Loading model weights took 15.3917 GB
+INFO 02-12 01:19:21 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2444281)[0;0m INFO 02-12 01:19:22 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2444279)[0;0m INFO 02-12 01:19:22 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2444281)[0;0m INFO 02-12 01:19:28 worker.py:266] Memory profiling takes 6.19 seconds
+[1;36m(VllmWorkerProcess pid=2444281)[0;0m INFO 02-12 01:19:28 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2444281)[0;0m INFO 02-12 01:19:28 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.73GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.27GiB.
+[1;36m(VllmWorkerProcess pid=2444280)[0;0m INFO 02-12 01:19:28 worker.py:266] Memory profiling takes 6.20 seconds
+[1;36m(VllmWorkerProcess pid=2444280)[0;0m INFO 02-12 01:19:28 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2444280)[0;0m INFO 02-12 01:19:28 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.73GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.27GiB.
+[1;36m(VllmWorkerProcess pid=2444279)[0;0m INFO 02-12 01:19:28 worker.py:266] Memory profiling takes 6.21 seconds
+[1;36m(VllmWorkerProcess pid=2444279)[0;0m INFO 02-12 01:19:28 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2444279)[0;0m INFO 02-12 01:19:28 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.74GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.26GiB.
+INFO 02-12 01:19:28 worker.py:266] Memory profiling takes 6.26 seconds
+INFO 02-12 01:19:28 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+INFO 02-12 01:19:28 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.78GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.22GiB.
+INFO 02-12 01:19:28 executor_base.py:108] # CUDA blocks: 53473, # CPU blocks: 4096
+INFO 02-12 01:19:28 executor_base.py:113] Maximum concurrency for 32768 tokens per request: 26.11x
+INFO 02-12 01:19:31 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2444279)[0;0m INFO 02-12 01:19:31 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2444280)[0;0m INFO 02-12 01:19:31 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2444281)[0;0m INFO 02-12 01:19:31 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2444280)[0;0m INFO 02-12 01:19:49 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+[1;36m(VllmWorkerProcess pid=2444281)[0;0m INFO 02-12 01:19:49 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+[1;36m(VllmWorkerProcess pid=2444279)[0;0m INFO 02-12 01:19:49 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+INFO 02-12 01:19:49 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+INFO 02-12 01:19:49 llm_engine.py:429] init engine (profile, create kv cache, warmup model) took 27.16 seconds
+INFO 02-12 01:23:44 multiproc_worker_utils.py:139] Terminating local vLLM worker processes
+[1;36m(VllmWorkerProcess pid=2444279)[0;0m INFO 02-12 01:23:44 multiproc_worker_utils.py:251] Worker exiting
+[1;36m(VllmWorkerProcess pid=2444281)[0;0m INFO 02-12 01:23:44 multiproc_worker_utils.py:251] Worker exiting
+[1;36m(VllmWorkerProcess pid=2444280)[0;0m INFO 02-12 01:23:44 multiproc_worker_utils.py:251] Worker exiting
+
+{'accuracy': 10.25}
+running theorem-qa pot evaluation
+INFO 02-12 01:23:56 __init__.py:183] Automatically detected platform cuda.
+INFO 02-12 01:24:04 config.py:526] This model supports multiple tasks: {'score', 'generate', 'reward', 'classify', 'embed'}. Defaulting to 'generate'.
+INFO 02-12 01:24:04 config.py:1383] Defaulting to use mp for distributed inference
+INFO 02-12 01:24:04 llm_engine.py:232] Initializing a V0 LLM engine (v0.7.1) with config: model='Qwen/QwQ-32B-Preview', speculative_config=None, tokenizer='Qwen/QwQ-32B-Preview', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=4, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=Qwen/QwQ-32B-Preview, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":256}, use_cached_outputs=False, 
+WARNING 02-12 01:24:04 multiproc_worker_utils.py:298] Reducing Torch parallelism from 16 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+INFO 02-12 01:24:04 custom_cache_manager.py:17] Setting Triton cache manager to: vllm.triton_utils.custom_cache_manager:CustomCacheManager
+[1;36m(VllmWorkerProcess pid=2449846)[0;0m INFO 02-12 01:24:04 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=2449847)[0;0m INFO 02-12 01:24:04 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=2449848)[0;0m INFO 02-12 01:24:04 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+INFO 02-12 01:24:05 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2449848)[0;0m INFO 02-12 01:24:05 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2449846)[0;0m INFO 02-12 01:24:05 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2449847)[0;0m INFO 02-12 01:24:05 cuda.py:235] Using Flash Attention backend.
+INFO 02-12 01:24:07 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2449846)[0;0m INFO 02-12 01:24:07 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2449847)[0;0m INFO 02-12 01:24:07 utils.py:938] Found nccl from library libnccl.so.2
+INFO 02-12 01:24:07 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2449847)[0;0m INFO 02-12 01:24:07 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2449846)[0;0m INFO 02-12 01:24:07 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2449848)[0;0m INFO 02-12 01:24:07 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2449848)[0;0m INFO 02-12 01:24:07 pynccl.py:67] vLLM is using nccl==2.21.5
+WARNING 02-12 01:24:08 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=2449847)[0;0m WARNING 02-12 01:24:08 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=2449848)[0;0m WARNING 02-12 01:24:08 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=2449846)[0;0m WARNING 02-12 01:24:08 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+INFO 02-12 01:24:08 shm_broadcast.py:256] vLLM message queue communication handle: Handle(connect_ip='127.0.0.1', local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_fa525bef'), local_subscribe_port=56113, remote_subscribe_port=None)
+INFO 02-12 01:24:08 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2449846)[0;0m INFO 02-12 01:24:08 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2449848)[0;0m INFO 02-12 01:24:08 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2449847)[0;0m INFO 02-12 01:24:08 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+INFO 02-12 01:24:08 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2449846)[0;0m INFO 02-12 01:24:08 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2449847)[0;0m INFO 02-12 01:24:08 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2449848)[0;0m INFO 02-12 01:24:08 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2449846)[0;0m INFO 02-12 01:24:16 model_runner.py:1116] Loading model weights took 15.3917 GB
+INFO 02-12 01:24:17 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2449848)[0;0m INFO 02-12 01:24:17 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2449847)[0;0m INFO 02-12 01:24:17 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2449847)[0;0m INFO 02-12 01:24:23 worker.py:266] Memory profiling takes 6.16 seconds
+[1;36m(VllmWorkerProcess pid=2449847)[0;0m INFO 02-12 01:24:23 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2449847)[0;0m INFO 02-12 01:24:23 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.73GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.27GiB.
+[1;36m(VllmWorkerProcess pid=2449846)[0;0m INFO 02-12 01:24:23 worker.py:266] Memory profiling takes 6.18 seconds
+[1;36m(VllmWorkerProcess pid=2449846)[0;0m INFO 02-12 01:24:23 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2449846)[0;0m INFO 02-12 01:24:23 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.74GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.26GiB.
+[1;36m(VllmWorkerProcess pid=2449848)[0;0m INFO 02-12 01:24:23 worker.py:266] Memory profiling takes 6.20 seconds
+[1;36m(VllmWorkerProcess pid=2449848)[0;0m INFO 02-12 01:24:23 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2449848)[0;0m INFO 02-12 01:24:23 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.73GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.27GiB.
+INFO 02-12 01:24:23 worker.py:266] Memory profiling takes 6.23 seconds
+INFO 02-12 01:24:23 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+INFO 02-12 01:24:23 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.78GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.22GiB.
+INFO 02-12 01:24:23 executor_base.py:108] # CUDA blocks: 53473, # CPU blocks: 4096
+INFO 02-12 01:24:23 executor_base.py:113] Maximum concurrency for 32768 tokens per request: 26.11x
+[1;36m(VllmWorkerProcess pid=2449846)[0;0m INFO 02-12 01:24:26 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 02-12 01:24:26 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2449848)[0;0m INFO 02-12 01:24:26 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2449847)[0;0m INFO 02-12 01:24:26 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 02-12 01:24:44 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+[1;36m(VllmWorkerProcess pid=2449846)[0;0m INFO 02-12 01:24:44 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+[1;36m(VllmWorkerProcess pid=2449847)[0;0m INFO 02-12 01:24:44 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+[1;36m(VllmWorkerProcess pid=2449848)[0;0m INFO 02-12 01:24:44 model_runner.py:1563] Graph capturing finished in 18 secs, took 0.77 GiB
+INFO 02-12 01:24:44 llm_engine.py:429] init engine (profile, create kv cache, warmup model) took 27.24 seconds
+ERROR 02-12 01:28:46 multiproc_worker_utils.py:122] Worker VllmWorkerProcess pid 2449846 died, exit code: -15
+INFO 02-12 01:28:46 multiproc_worker_utils.py:126] Killing local vLLM worker processes
+running bbh evaluation
+Loaded 6511 examples.
+INFO 02-12 01:28:59 __init__.py:183] Automatically detected platform cuda.
+INFO 02-12 01:29:06 config.py:526] This model supports multiple tasks: {'classify', 'score', 'reward', 'embed', 'generate'}. Defaulting to 'generate'.
+INFO 02-12 01:29:06 config.py:1383] Defaulting to use mp for distributed inference
+INFO 02-12 01:29:06 llm_engine.py:232] Initializing a V0 LLM engine (v0.7.1) with config: model='Qwen/QwQ-32B-Preview', speculative_config=None, tokenizer='Qwen/QwQ-32B-Preview', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=4, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=Qwen/QwQ-32B-Preview, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":256}, use_cached_outputs=False, 
+WARNING 02-12 01:29:07 multiproc_worker_utils.py:298] Reducing Torch parallelism from 16 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+INFO 02-12 01:29:07 custom_cache_manager.py:17] Setting Triton cache manager to: vllm.triton_utils.custom_cache_manager:CustomCacheManager
+[1;36m(VllmWorkerProcess pid=2455438)[0;0m INFO 02-12 01:29:07 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=2455439)[0;0m INFO 02-12 01:29:07 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=2455440)[0;0m INFO 02-12 01:29:07 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+INFO 02-12 01:29:08 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2455439)[0;0m INFO 02-12 01:29:08 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2455438)[0;0m INFO 02-12 01:29:08 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2455440)[0;0m INFO 02-12 01:29:08 cuda.py:235] Using Flash Attention backend.
+INFO 02-12 01:29:10 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2455438)[0;0m INFO 02-12 01:29:10 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2455440)[0;0m INFO 02-12 01:29:10 utils.py:938] Found nccl from library libnccl.so.2
+INFO 02-12 01:29:10 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2455438)[0;0m INFO 02-12 01:29:10 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2455439)[0;0m INFO 02-12 01:29:10 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2455440)[0;0m INFO 02-12 01:29:10 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2455439)[0;0m INFO 02-12 01:29:10 pynccl.py:67] vLLM is using nccl==2.21.5
+WARNING 02-12 01:29:11 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=2455439)[0;0m WARNING 02-12 01:29:11 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=2455438)[0;0m WARNING 02-12 01:29:11 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=2455440)[0;0m WARNING 02-12 01:29:11 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+INFO 02-12 01:29:11 shm_broadcast.py:256] vLLM message queue communication handle: Handle(connect_ip='127.0.0.1', local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_356d3bb3'), local_subscribe_port=45841, remote_subscribe_port=None)
+INFO 02-12 01:29:11 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2455439)[0;0m INFO 02-12 01:29:11 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2455438)[0;0m INFO 02-12 01:29:11 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2455440)[0;0m INFO 02-12 01:29:11 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+INFO 02-12 01:29:11 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2455439)[0;0m INFO 02-12 01:29:11 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2455440)[0;0m INFO 02-12 01:29:11 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2455438)[0;0m INFO 02-12 01:29:11 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2455440)[0;0m INFO 02-12 01:29:19 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2455439)[0;0m INFO 02-12 01:29:19 model_runner.py:1116] Loading model weights took 15.3917 GB
+INFO 02-12 01:29:19 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2455438)[0;0m INFO 02-12 01:29:20 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2455438)[0;0m INFO 02-12 01:29:26 worker.py:266] Memory profiling takes 6.22 seconds
+[1;36m(VllmWorkerProcess pid=2455438)[0;0m INFO 02-12 01:29:26 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2455438)[0;0m INFO 02-12 01:29:26 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.74GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.26GiB.
+[1;36m(VllmWorkerProcess pid=2455440)[0;0m INFO 02-12 01:29:26 worker.py:266] Memory profiling takes 6.21 seconds
+[1;36m(VllmWorkerProcess pid=2455440)[0;0m INFO 02-12 01:29:26 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2455440)[0;0m INFO 02-12 01:29:26 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.73GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.27GiB.
+[1;36m(VllmWorkerProcess pid=2455439)[0;0m INFO 02-12 01:29:26 worker.py:266] Memory profiling takes 6.22 seconds
+[1;36m(VllmWorkerProcess pid=2455439)[0;0m INFO 02-12 01:29:26 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2455439)[0;0m INFO 02-12 01:29:26 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.73GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.27GiB.
+INFO 02-12 01:29:26 worker.py:266] Memory profiling takes 6.28 seconds
+INFO 02-12 01:29:26 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+INFO 02-12 01:29:26 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.78GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.22GiB.
+INFO 02-12 01:29:27 executor_base.py:108] # CUDA blocks: 53473, # CPU blocks: 4096
+INFO 02-12 01:29:27 executor_base.py:113] Maximum concurrency for 32768 tokens per request: 26.11x
+INFO 02-12 01:29:30 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2455440)[0;0m INFO 02-12 01:29:30 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2455439)[0;0m INFO 02-12 01:29:30 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2455438)[0;0m INFO 02-12 01:29:30 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2455438)[0;0m INFO 02-12 01:29:47 model_runner.py:1563] Graph capturing finished in 17 secs, took 0.77 GiB
+INFO 02-12 01:29:47 model_runner.py:1563] Graph capturing finished in 17 secs, took 0.77 GiB
+[1;36m(VllmWorkerProcess pid=2455439)[0;0m INFO 02-12 01:29:47 model_runner.py:1563] Graph capturing finished in 17 secs, took 0.77 GiB
+[1;36m(VllmWorkerProcess pid=2455440)[0;0m INFO 02-12 01:29:47 model_runner.py:1563] Graph capturing finished in 17 secs, took 0.77 GiB
+INFO 02-12 01:29:47 llm_engine.py:429] init engine (profile, create kv cache, warmup model) took 27.06 seconds
+INFO 02-12 02:00:59 multiproc_worker_utils.py:139] Terminating local vLLM worker processes
+[1;36m(VllmWorkerProcess pid=2455439)[0;0m INFO 02-12 02:00:59 multiproc_worker_utils.py:251] Worker exiting
+[1;36m(VllmWorkerProcess pid=2455438)[0;0m INFO 02-12 02:00:59 multiproc_worker_utils.py:251] Worker exiting
+[1;36m(VllmWorkerProcess pid=2455440)[0;0m INFO 02-12 02:00:59 multiproc_worker_utils.py:251] Worker exiting
+Exact match:  79.23514053140839
+Exact match by task:  task_name
+boolean_expressions                        1.000000
+causal_judgement                           0.411765
+date_understanding                         0.048000
+disambiguation_qa                          0.724000
+dyck_languages                             0.856000
+formal_fallacies                           0.968000
+geometric_shapes                           0.692000
+hyperbaton                                 0.996000
+logical_deduction_five_objects             0.960000
+logical_deduction_seven_objects            0.888000
+logical_deduction_three_objects            0.964000
+movie_recommendation                       0.964000
+multistep_arithmetic_two                   0.936000
+navigate                                   0.996000
+object_counting                            0.944000
+penguins_in_a_table                        0.643836
+reasoning_about_colored_objects            0.760000
+ruin_names                                 0.996000
+salient_translation_error_detection        0.664000
+snarks                                     0.629213
+sports_understanding                       0.908000
+temporal_sequences                         0.864000
+tracking_shuffled_objects_five_objects     0.684000
+tracking_shuffled_objects_seven_objects    0.940000
+tracking_shuffled_objects_three_objects    0.956000
+web_of_lies                                0.612000
+word_sorting                               0.184000
+Name: match, dtype: float64
+running if-eval evaluation
+INFO 02-12 02:01:14 __init__.py:183] Automatically detected platform cuda.
+INFO 02-12 02:01:21 config.py:526] This model supports multiple tasks: {'embed', 'score', 'reward', 'classify', 'generate'}. Defaulting to 'generate'.
+INFO 02-12 02:01:21 config.py:1383] Defaulting to use mp for distributed inference
+INFO 02-12 02:01:21 llm_engine.py:232] Initializing a V0 LLM engine (v0.7.1) with config: model='Qwen/QwQ-32B-Preview', speculative_config=None, tokenizer='Qwen/QwQ-32B-Preview', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=4, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=Qwen/QwQ-32B-Preview, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":256}, use_cached_outputs=False, 
+WARNING 02-12 02:01:22 multiproc_worker_utils.py:298] Reducing Torch parallelism from 16 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+INFO 02-12 02:01:22 custom_cache_manager.py:17] Setting Triton cache manager to: vllm.triton_utils.custom_cache_manager:CustomCacheManager
+[1;36m(VllmWorkerProcess pid=2490380)[0;0m INFO 02-12 02:01:22 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=2490381)[0;0m INFO 02-12 02:01:22 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=2490382)[0;0m INFO 02-12 02:01:22 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+INFO 02-12 02:01:23 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2490380)[0;0m INFO 02-12 02:01:23 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2490381)[0;0m INFO 02-12 02:01:24 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2490382)[0;0m INFO 02-12 02:01:24 cuda.py:235] Using Flash Attention backend.
+INFO 02-12 02:01:26 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2490381)[0;0m INFO 02-12 02:01:26 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2490382)[0;0m INFO 02-12 02:01:26 utils.py:938] Found nccl from library libnccl.so.2
+INFO 02-12 02:01:26 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2490381)[0;0m INFO 02-12 02:01:26 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2490382)[0;0m INFO 02-12 02:01:26 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2490380)[0;0m INFO 02-12 02:01:26 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2490380)[0;0m INFO 02-12 02:01:26 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2490381)[0;0m WARNING 02-12 02:01:27 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=2490380)[0;0m WARNING 02-12 02:01:27 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+WARNING 02-12 02:01:27 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=2490382)[0;0m WARNING 02-12 02:01:27 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+INFO 02-12 02:01:27 shm_broadcast.py:256] vLLM message queue communication handle: Handle(connect_ip='127.0.0.1', local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_224667d2'), local_subscribe_port=59447, remote_subscribe_port=None)
+INFO 02-12 02:01:27 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2490380)[0;0m INFO 02-12 02:01:27 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2490381)[0;0m INFO 02-12 02:01:27 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2490382)[0;0m INFO 02-12 02:01:27 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+INFO 02-12 02:01:27 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2490381)[0;0m INFO 02-12 02:01:27 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2490380)[0;0m INFO 02-12 02:01:27 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2490382)[0;0m INFO 02-12 02:01:27 weight_utils.py:251] Using model weights format ['*.safetensors']
+INFO 02-12 02:01:35 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2490380)[0;0m INFO 02-12 02:01:36 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2490382)[0;0m INFO 02-12 02:01:37 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2490381)[0;0m INFO 02-12 02:01:38 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2490380)[0;0m INFO 02-12 02:01:45 worker.py:266] Memory profiling takes 6.45 seconds
+[1;36m(VllmWorkerProcess pid=2490380)[0;0m INFO 02-12 02:01:45 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2490380)[0;0m INFO 02-12 02:01:45 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.74GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.26GiB.
+[1;36m(VllmWorkerProcess pid=2490381)[0;0m INFO 02-12 02:01:45 worker.py:266] Memory profiling takes 6.50 seconds
+[1;36m(VllmWorkerProcess pid=2490381)[0;0m INFO 02-12 02:01:45 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2490381)[0;0m INFO 02-12 02:01:45 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.73GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.27GiB.
+[1;36m(VllmWorkerProcess pid=2490382)[0;0m INFO 02-12 02:01:45 worker.py:266] Memory profiling takes 6.49 seconds
+[1;36m(VllmWorkerProcess pid=2490382)[0;0m INFO 02-12 02:01:45 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2490382)[0;0m INFO 02-12 02:01:45 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.73GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.27GiB.
+INFO 02-12 02:01:45 worker.py:266] Memory profiling takes 6.52 seconds
+INFO 02-12 02:01:45 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+INFO 02-12 02:01:45 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.78GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.22GiB.
+INFO 02-12 02:01:45 executor_base.py:108] # CUDA blocks: 53473, # CPU blocks: 4096
+INFO 02-12 02:01:45 executor_base.py:113] Maximum concurrency for 32768 tokens per request: 26.11x
+[1;36m(VllmWorkerProcess pid=2490382)[0;0m INFO 02-12 02:01:48 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 02-12 02:01:48 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2490381)[0;0m INFO 02-12 02:01:48 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2490380)[0;0m INFO 02-12 02:01:48 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2490382)[0;0m INFO 02-12 02:02:07 model_runner.py:1563] Graph capturing finished in 19 secs, took 0.77 GiB
+[1;36m(VllmWorkerProcess pid=2490380)[0;0m INFO 02-12 02:02:07 model_runner.py:1563] Graph capturing finished in 19 secs, took 0.77 GiB
+INFO 02-12 02:02:07 model_runner.py:1563] Graph capturing finished in 19 secs, took 0.77 GiB
+[1;36m(VllmWorkerProcess pid=2490381)[0;0m INFO 02-12 02:02:07 model_runner.py:1563] Graph capturing finished in 19 secs, took 0.77 GiB
+INFO 02-12 02:02:07 llm_engine.py:429] init engine (profile, create kv cache, warmup model) took 28.95 seconds
+INFO 02-12 02:04:20 multiproc_worker_utils.py:139] Terminating local vLLM worker processes
+[1;36m(VllmWorkerProcess pid=2490380)[0;0m INFO 02-12 02:04:20 multiproc_worker_utils.py:251] Worker exiting
+[1;36m(VllmWorkerProcess pid=2490382)[0;0m INFO 02-12 02:04:20 multiproc_worker_utils.py:251] Worker exiting
+[1;36m(VllmWorkerProcess pid=2490381)[0;0m INFO 02-12 02:04:20 multiproc_worker_utils.py:251] Worker exiting
+running mmlu evaluation
+INFO 02-12 02:04:34 __init__.py:183] Automatically detected platform cuda.
+Evaluating Qwen/QwQ-32B-Preview on 57 subjects
+INFO 02-12 02:04:41 config.py:526] This model supports multiple tasks: {'generate', 'reward', 'score', 'classify', 'embed'}. Defaulting to 'generate'.
+INFO 02-12 02:04:41 config.py:1383] Defaulting to use mp for distributed inference
+INFO 02-12 02:04:41 llm_engine.py:232] Initializing a V0 LLM engine (v0.7.1) with config: model='Qwen/QwQ-32B-Preview', speculative_config=None, tokenizer='Qwen/QwQ-32B-Preview', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=4, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=Qwen/QwQ-32B-Preview, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":256}, use_cached_outputs=False, 
+WARNING 02-12 02:04:41 multiproc_worker_utils.py:298] Reducing Torch parallelism from 16 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+INFO 02-12 02:04:41 custom_cache_manager.py:17] Setting Triton cache manager to: vllm.triton_utils.custom_cache_manager:CustomCacheManager
+[1;36m(VllmWorkerProcess pid=2494674)[0;0m INFO 02-12 02:04:41 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=2494675)[0;0m INFO 02-12 02:04:42 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+[1;36m(VllmWorkerProcess pid=2494676)[0;0m INFO 02-12 02:04:42 multiproc_worker_utils.py:227] Worker ready; awaiting tasks
+INFO 02-12 02:04:43 cuda.py:235] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=2494674)[0;0m [1;36m(VllmWorkerProcess pid=2494676)[0;0m [1;36m(VllmWorkerProcess pid=2494675)[0;0m INFO 02-12 02:04:43 cuda.py:235] Using Flash Attention backend.
+INFO 02-12 02:04:43 cuda.py:235] Using Flash Attention backend.
+INFO 02-12 02:04:43 cuda.py:235] Using Flash Attention backend.
+INFO 02-12 02:04:45 utils.py:938] Found nccl from library libnccl.so.2
+INFO 02-12 02:04:45 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2494676)[0;0m [1;36m(VllmWorkerProcess pid=2494675)[0;0m INFO 02-12 02:04:45 utils.py:938] Found nccl from library libnccl.so.2
+INFO 02-12 02:04:45 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2494674)[0;0m INFO 02-12 02:04:45 utils.py:938] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=2494676)[0;0m [1;36m(VllmWorkerProcess pid=2494675)[0;0m INFO 02-12 02:04:45 pynccl.py:67] vLLM is using nccl==2.21.5
+INFO 02-12 02:04:45 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2494674)[0;0m INFO 02-12 02:04:45 pynccl.py:67] vLLM is using nccl==2.21.5
+[1;36m(VllmWorkerProcess pid=2494676)[0;0m WARNING 02-12 02:04:46 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+WARNING 02-12 02:04:46 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=2494675)[0;0m WARNING 02-12 02:04:46 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+[1;36m(VllmWorkerProcess pid=2494674)[0;0m WARNING 02-12 02:04:46 custom_all_reduce.py:134] Custom allreduce is disabled because it's not supported on more than two PCIe-only GPUs. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+INFO 02-12 02:04:46 shm_broadcast.py:256] vLLM message queue communication handle: Handle(connect_ip='127.0.0.1', local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_9cf91036'), local_subscribe_port=49165, remote_subscribe_port=None)
+[1;36m(VllmWorkerProcess pid=2494675)[0;0m INFO 02-12 02:04:46 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+INFO 02-12 02:04:46 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2494674)[0;0m INFO 02-12 02:04:46 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+[1;36m(VllmWorkerProcess pid=2494676)[0;0m INFO 02-12 02:04:46 model_runner.py:1111] Starting to load model Qwen/QwQ-32B-Preview...
+INFO 02-12 02:04:46 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2494675)[0;0m INFO 02-12 02:04:46 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2494674)[0;0m INFO 02-12 02:04:46 weight_utils.py:251] Using model weights format ['*.safetensors']
+[1;36m(VllmWorkerProcess pid=2494676)[0;0m INFO 02-12 02:04:46 weight_utils.py:251] Using model weights format ['*.safetensors']
+INFO 02-12 02:04:54 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2494675)[0;0m INFO 02-12 02:04:56 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2494674)[0;0m INFO 02-12 02:04:57 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2494676)[0;0m INFO 02-12 02:04:57 model_runner.py:1116] Loading model weights took 15.3917 GB
+[1;36m(VllmWorkerProcess pid=2494674)[0;0m INFO 02-12 02:05:04 worker.py:266] Memory profiling takes 6.45 seconds
+[1;36m(VllmWorkerProcess pid=2494674)[0;0m INFO 02-12 02:05:04 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2494674)[0;0m INFO 02-12 02:05:04 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.74GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.26GiB.
+[1;36m(VllmWorkerProcess pid=2494675)[0;0m INFO 02-12 02:05:04 worker.py:266] Memory profiling takes 6.46 seconds
+[1;36m(VllmWorkerProcess pid=2494675)[0;0m INFO 02-12 02:05:04 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2494675)[0;0m INFO 02-12 02:05:04 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.73GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.27GiB.
+INFO 02-12 02:05:04 worker.py:266] Memory profiling takes 6.49 seconds
+INFO 02-12 02:05:04 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+INFO 02-12 02:05:04 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.78GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.22GiB.
+[1;36m(VllmWorkerProcess pid=2494676)[0;0m INFO 02-12 02:05:04 worker.py:266] Memory profiling takes 6.42 seconds
+[1;36m(VllmWorkerProcess pid=2494676)[0;0m INFO 02-12 02:05:04 worker.py:266] the current vLLM instance can use total_gpu_memory (79.14GiB) x gpu_memory_utilization (0.90) = 71.22GiB
+[1;36m(VllmWorkerProcess pid=2494676)[0;0m INFO 02-12 02:05:04 worker.py:266] model weights take 15.39GiB; non_torch_memory takes 0.73GiB; PyTorch activation peak memory takes 2.84GiB; the rest of the memory reserved for KV Cache is 52.27GiB.
+INFO 02-12 02:05:04 executor_base.py:108] # CUDA blocks: 53473, # CPU blocks: 4096
+INFO 02-12 02:05:04 executor_base.py:113] Maximum concurrency for 32768 tokens per request: 26.11x
+INFO 02-12 02:05:07 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2494675)[0;0m INFO 02-12 02:05:07 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[1;36m(VllmWorkerProcess pid=2494674)[0;0m [1;36m(VllmWorkerProcess pid=2494676)[0;0m INFO 02-12 02:05:07 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 02-12 02:05:07 model_runner.py:1435] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 02-12 02:05:26 model_runner.py:1563] Graph capturing finished in 19 secs, took 0.77 GiB
+[1;36m(VllmWorkerProcess pid=2494675)[0;0m INFO 02-12 02:05:26 model_runner.py:1563] Graph capturing finished in 19 secs, took 0.77 GiB
+[1;36m(VllmWorkerProcess pid=2494674)[0;0m INFO 02-12 02:05:26 model_runner.py:1563] Graph capturing finished in 19 secs, took 0.77 GiB
+[1;36m(VllmWorkerProcess pid=2494676)[0;0m INFO 02-12 02:05:26 model_runner.py:1563] Graph capturing finished in 19 secs, took 0.77 GiB
+INFO 02-12 02:05:26 llm_engine.py:429] init engine (profile, create kv cache, warmup model) took 29.30 seconds
+ERROR 02-12 02:05:29 multiproc_worker_utils.py:122] Worker VllmWorkerProcess pid 2494674 died, exit code: -15
+INFO 02-12 02:05:29 multiproc_worker_utils.py:126] Killing local vLLM worker processes
